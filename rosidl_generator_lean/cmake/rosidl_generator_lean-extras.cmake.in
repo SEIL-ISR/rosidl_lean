@@ -1,0 +1,7 @@
+# generated from rosidl_generator_lean/cmake/rosidl_generator_lean-extras.cmake.in
+include("${rosidl_generator_lean_DIR}/register_lean.cmake")
+rosidl_generator_lean_extras(
+  "${rosidl_generator_lean_DIR}/../../../lib/rosidl_generator_lean/rosidl_generator_lean"
+  "${rosidl_generator_lean_DIR}/../../../@PYTHON_INSTALL_DIR@/rosidl_generator_lean/__init__.py;${rosidl_generator_lean_DIR}/../../../@PYTHON_INSTALL_DIR@/rosidl_generator_lean/generate_lean_impl.py"
+  "${rosidl_generator_lean_DIR}/../resource"
+)

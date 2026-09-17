@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import sys
+
+try:
+    from rosidl_generator_lean import generate_lean
+except ImportError:
+    # modifying sys.path and importing the Python package with the same
+    # name as this script does not work on Windows
+    rosidl_generator_lean_root = os.path.dirname(os.path.dirname(__file__))
+    rosidl_generator_lean_module = os.path.join(
+        rosidl_generator_lean_root, 'rosidl_generator_lean', '__init__.py')
+    if not os.path.exists(rosidl_generator_lean_module):
+        raise
+    from importlib.machinery import SourceFileLoader
+
+    loader = SourceFileLoader(
+        'rosidl_generator_lean', rosidl_generator_lean_module)
+    rosidl_generator_lean = loader.load_module()
+    generate_lean = rosidl_generator_lean.generate_lean
+
+
+def main(argv=sys.argv[1:]):
+    parser = argparse.ArgumentParser(
+        description='Generate the Lean 4 ROS interfaces.')
+    parser.add_argument(
+        '--generator-arguments-file',
+        required=True,
+        help='The location of the file containing the generator arguments')
+    args = parser.parse_args(argv)
+
+    generate_lean(args.generator_arguments_file)
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,8 @@
+# Goal: count down from this value to zero.
+int32 start_from
+---
+# Result: every value that was counted through, in order.
+int32[] sequence
+---
+# Feedback: how many are left.
+int32 remaining

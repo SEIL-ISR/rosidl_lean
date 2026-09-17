@@ -1,0 +1,18 @@
+.lake/
+build/
+install/
+log/
+*.olean
+*.ilean
+*.o
+*.a
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+
+# Interface packages built from source, cloned into deps/
+deps/
+
+# macOS Finder metadata
+.DS_Store
